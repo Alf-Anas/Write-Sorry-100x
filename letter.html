@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" />
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Acme|Alegreya|Alegreya+Sans|Anton|Archivo|Archivo+Black|Archivo+Narrow|Arimo|Arvo|Asap|Asap+Condensed|Bitter|Bowlby+One+SC|Bree+Serif|Cabin|Cairo|Catamaran|Crete+Round|Crimson+Text|Cuprum|Dancing+Script|Dosis|Droid+Sans|Droid+Serif|EB+Garamond|Exo|Exo+2|Faustina|Fira+Sans|Fjalla+One|Francois+One|Gloria+Hallelujah|Hind|Inconsolata|Indie+Flower|Josefin+Sans|Julee|Karla|Lato|Libre+Baskerville|Libre+Franklin|Lobster|Lora|Mada|Manuale|Maven+Pro|Merriweather|Merriweather+Sans|Montserrat|Montserrat+Subrayada|Mukta+Vaani|Muli|Noto+Sans|Noto+Serif|Nunito|Open+Sans|Open+Sans+Condensed:300|Oswald|Oxygen|PT+Sans|PT+Sans+Caption|PT+Sans+Narrow|PT+Serif|Pacifico|Passion+One|Pathway+Gothic+One|Play|Playfair+Display|Poppins|Questrial|Quicksand|Raleway|Roboto|Roboto+Condensed|Roboto+Mono|Roboto+Slab|Ropa+Sans|Rubik|Saira|Saira+Condensed|Saira+Extra+Condensed|Saira+Semi+Condensed|Sedgwick+Ave|Sedgwick+Ave+Display|Shadows+Into+Light|Signika|Slabo+27px|Source+Code+Pro|Source+Sans+Pro|Spectral|Titillium+Web|Ubuntu|Ubuntu+Condensed|Varela+Round|Vollkorn|Work+Sans|Yanone+Kaffeesatz|Zilla+Slab|Zilla+Slab+Highlight"
+        rel="stylesheet">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FE7L1WF80B"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-FE7L1WF80B');
+    </script>
+
+    <style>
+        #main-text {
+            font-size: 2em;
+            margin: 0;
+            font-family: "Courier New";
+            white-space: pre-wrap;
+        }
+
+        .typewriter:after {
+            content: "|";
+            animation: blink 350ms linear infinite alternate;
+        }
+
+        @-webkit-keyframes blink {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-moz-keyframes blink {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+
+    <title>Letter</title>
+
+</head>
+
+<body id="home">
+
+    <!-- Nav Start -->
+    <nav class="bg-dark text-center text-white p-3 fixed-top">
+        <a href="../" class="btn btn-warning" type="button">
+            <i class="bi bi-house-door-fill me-1"></i>Home
+        </a>
+    </nav>
+    <!-- Nav End -->
+
+    <!-- Main Start -->
+    <section>
+        <div class="container py-5">
+            <div class="row mb-5 mt-5 justify-content-center">
+                <div class="col-md-12 text-center">
+                    <div id="main-text"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Main End -->
+
+    <button type="button" class="btn btn-light" style="position: fixed; right: 1em; bottom: 1em;"
+        id="count-letter">0</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+
+        const mText = urlParams.get('mText');
+        const mIterate = urlParams.get('mIterate');
+        const textSpeed = urlParams.get('textSpeed');
+        const fontType = urlParams.get('fontType');
+        const textSize = urlParams.get('textSize');
+
+        const typer = document.getElementById('main-text');
+        typer.style.fontSize = textSize + "pt";
+        typer.style.fontFamily = fontType;
+
+        function createP() {
+            const newP = document.createElement("p");
+            newP.classList.add("typewriter");
+            typer.appendChild(newP);
+            return newP;
+        }
+
+        function setupTypewriter(t, iterate) {
+            const HTML = mText;
+            t.innerHTML = "";
+
+            let cursorPosition = 0,
+                tag = "",
+                typeSpeed = parseInt(textSpeed),
+                tempTypeSpeed = 0;
+
+            const type = function () {
+                tempTypeSpeed = typeSpeed;
+                t.innerHTML += HTML[cursorPosition];
+
+                cursorPosition += 1;
+                if (cursorPosition < HTML.length) {
+                    setTimeout(type, tempTypeSpeed);
+                } else {
+                    const xIterate = iterate + 1;
+                    document.getElementById("count-letter").innerHTML = xIterate;
+                    window.scrollTo(0, document.body.scrollHeight);
+                    if (xIterate < mIterate) {
+                        setTimeout(function () {
+                            t.classList.remove("typewriter");
+                            setupTypewriter(createP(), iterate + 1)
+                        }, typeSpeed + 600)
+                    }
+                }
+            };
+
+            type();
+        }
+
+        setupTypewriter(createP(), 1);
+
+    </script>
+
+</body>
+
+</html>

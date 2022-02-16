@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" />
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FE7L1WF80B"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-FE7L1WF80B');
+    </script>
+
+    <title>Write "Sorry" 100X</title>
+
+</head>
+
+<body id="home">
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="logo.png" alt="" height="24" class="d-inline-block align-text-top">
+                Write "Sorry" 100X
+            </a>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Setting Start -->
+    <section>
+        <div class="container pt-5 mb-5">
+            <div class="row mb-3 mt-5 justify-content-center">
+                <div class="col-md-6">
+                    <div class="mb-2">
+                        <label class="form-label">Text</label>
+                        <textarea class="form-control" id="m-text" rows="3">I am Sorry</textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mt-2">
+                            <label class="form-label">Iterate</label>
+                            <input type="number" class="form-control" placeholder="0" value="100" id="m-iterate">
+                        </div>
+                        <div class="col-md-6 mt-2">
+                            <label class="form-label">Type Speed</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" placeholder="0" value="100" id="text-speed">
+                                <span class="input-group-text">ms</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mt-2">
+                            <label class="form-label">Font</label>
+                            <select class="form-select" id="list-font"></select>
+                        </div>
+                        <div class="col-md-6 mt-2">
+                            <label class="form-label">Text Size</label>
+                            <input type="number" class="form-control" placeholder="0" value="36" id="text-size">
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-6 mt-2">
+                            <div class="d-grid gap-2">
+                                <a onclick="proceed()" class="btn btn-info" type="button">
+                                    <i class="bi bi-gear-wide-connected me-2"></i>Proceed
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-2">
+                            <div class="d-grid gap-2">
+                                <a onclick="copyLink()" class="btn btn-secondary" type="button">
+                                    <i class="bi bi bi-paperclip me-2"></i>Copy Link
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-3">
+                        <a href="https://github.com/Alf-Anas/Write-Sorry-100x" target="_blank" class="mx-auto">Github
+                            Source</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Setting End -->
+
+    <!-- Shadow Start -->
+    <section class="mt-5" style="background-color: #dee2e6;">
+        <div class="col-md-6 mx-auto">
+            <div id="disqus_thread"></div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#212529" fill-opacity="1"
+                d="M0,256L60,234.7C120,213,240,171,360,170.7C480,171,600,213,720,229.3C840,245,960,235,1080,229.3C1200,224,1320,224,1380,224L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
+            </path>
+        </svg>
+    </section>
+    <!-- Shadow End -->
+
+    <!-- Footer Start -->
+    <footer class="bg-dark text-center text-white pb-5">
+        <div style="margin-bottom: 1.5em;">
+            <a href="https://trakteer.id/alf-anas" target="_blank"><img id="wse-buttons-preview"
+                    src="https://cdn.trakteer.id/images/embed/trbtn-red-1.png"
+                    style="border: 0px; height: 50px; margin: 0.5em;" alt="Trakteer Saya"></a>
+            <a href="https://www.buymeacoffee.com/alf.anas" target="_blank"><img
+                    src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee"
+                    style="height: 50px !important;width: 181px !important; margin: 0.5em;"></a>
+        </div>
+        <p style="margin-bottom: 0;">Created with <i class="bi bi-heart-fill text-danger"></i> by <a
+                href="https://geoit.dev" class="text-white fw-bold">GeoIT Developer</a>
+        </p>
+        <small class="text-muted" id="last-modified">Last Updated : 08 Febuary 2021</small>
+    </footer>
+    <!-- Footer End -->
+
+    <script>
+
+        function optionNew(select, value, text) {
+            let option = document.createElement("option");
+            option.value = value;
+            option.text = text;
+            select.appendChild(option);
+        }
+
+        const listFont = [
+            "Abril+Fatface",
+            "Acme",
+            "Alegreya",
+            "Alegreya+Sans",
+            "Anton",
+            "Archivo",
+            "Archivo+Black",
+            "Archivo+Narrow",
+            "Arimo",
+            "Arvo",
+            "Asap",
+            "Asap+Condensed",
+            "Bitter",
+            "Bowlby+One+SC",
+            "Bree+Serif",
+            "Cabin",
+            "Cairo",
+            "Catamaran",
+            "Crete+Round",
+            "Crimson+Text",
+            "Cuprum",
+            "Dancing+Script",
+            "Dosis",
+            "Droid+Sans",
+            "Droid+Serif",
+            "EB+Garamond",
+            "Exo",
+            "Exo+2",
+            "Faustina",
+            "Fira+Sans",
+            "Fjalla+One",
+            "Francois+One",
+            "Gloria+Hallelujah",
+            "Hind",
+            "Inconsolata",
+            "Indie+Flower",
+            "Josefin+Sans",
+            "Julee",
+            "Karla",
+            "Lato",
+            "Libre+Baskerville",
+            "Libre+Franklin",
+            "Lobster",
+            "Lora",
+            "Mada",
+            "Manuale",
+            "Maven+Pro",
+            "Merriweather",
+            "Merriweather+Sans",
+            "Montserrat",
+            "Montserrat+Subrayada",
+            "Mukta+Vaani",
+            "Muli",
+            "Noto+Sans",
+            "Noto+Serif",
+            "Nunito",
+            "Open+Sans",
+            "Open+Sans+Condensed:300",
+            "Oswald",
+            "Oxygen",
+            "PT+Sans",
+            "PT+Sans+Caption",
+            "PT+Sans+Narrow",
+            "PT+Serif",
+            "Pacifico",
+            "Passion+One",
+            "Pathway+Gothic+One",
+            "Play",
+            "Playfair+Display",
+            "Poppins",
+            "Questrial",
+            "Quicksand",
+            "Raleway",
+            "Roboto",
+            "Roboto+Condensed",
+            "Roboto+Mono",
+            "Roboto+Slab",
+            "Ropa+Sans",
+            "Rubik",
+            "Saira",
+            "Saira+Condensed",
+            "Saira+Extra+Condensed",
+            "Saira+Semi+Condensed",
+            "Sedgwick+Ave",
+            "Sedgwick+Ave+Display",
+            "Shadows+Into+Light",
+            "Signika",
+            "Slabo+27px",
+            "Source+Code+Pro",
+            "Source+Sans+Pro",
+            "Spectral",
+            "Titillium+Web",
+            "Ubuntu",
+            "Ubuntu+Condensed",
+            "Varela+Round",
+            "Vollkorn",
+            "Work+Sans",
+            "Yanone+Kaffeesatz",
+            "Zilla+Slab",
+            "Zilla+Slab+Highlight"
+        ];
+
+        const listFontSelect = document.getElementById("list-font");
+        listFont.forEach((font) => {
+            optionNew(listFontSelect, font, font);
+        });
+        listFontSelect.value = "Roboto";
+
+        const date = new Date(document.lastModified);
+        document.getElementById("last-modified").innerHTML = "Last Modified : " + date.toISOString().slice(0, 10);
+
+        function setData() {
+            const mText = document.getElementById("m-text").value;
+            const mIterate = document.getElementById("m-iterate").value;
+            const fontType = document.getElementById("list-font").value;
+            const textSize = document.getElementById("text-size").value;
+            const textSpeed = document.getElementById("text-speed").value;
+
+            const letterUrl = "/letter.html?" + "mText=" + mText + "&mIterate=" + mIterate + "&fontType=" + fontType + "&textSize=" + textSize + "&textSpeed=" + textSpeed;
+            return letterUrl;
+        }
+
+        function proceed() {
+            window.open("." + setData(), '_blank').focus();
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.hostname + setData());
+        }
+
+    </script>
+
+    <!-- Display discuss comment -->
+    <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+        var disqus_config = function () {
+            this.page.url = window.location.href;
+            this.page.identifier = "letter";
+        };
+
+        (function () { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://geoit-dev.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>
+        Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+
+</body>
+
+</html>
